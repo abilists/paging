@@ -1,8 +1,8 @@
-package sample.paging;
+package io.paging;
 
-import jp.ameba.sg2.common.bean.paging.PagingBean;
-import jp.ameba.sg2.common.bean.paging.PagingInfoBean;
-import jp.ameba.sg2.common.bean.paging.PagingPrevNextBean;
+import io.paging.bean.PagingBean;
+import io.paging.bean.PagingInfoBean;
+import io.paging.bean.PagingPrevNextBean;
 
 public class Paging {
 
@@ -97,7 +97,7 @@ public class Paging {
 			intPageNumber = 0;
 		}
 
-		// to set the link parametar in the 7 number
+		// To set the link parametar in the 7 number
 		for (int i=0;intLimitPage > i; i++ ) {
 			PagingInfoBean pagingInfoBean = new PagingInfoBean();
 
@@ -107,9 +107,9 @@ public class Paging {
 			pagingBean.addPagingInfoList(pagingInfoBean);
 		}
 
-		// to press the button munber that is paging number.
+		// To press the button munber that is paging number.
 		pagingBean.setNowPage(String.valueOf(intNowPage));
-		// to set the count for represent
+		// To set the count for represent
 		intStartCount = (intNowPage-1)*intPerPage+1;
 		intEndCount = (intNowPage)*intPerPage;
 		pagingBean.setStartCount(String.valueOf(intStartCount));

@@ -1,4 +1,4 @@
-package sample.bean.paging;
+package io.paging.bean;
 
 import java.io.Serializable;
 
