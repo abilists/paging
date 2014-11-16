@@ -1,12 +1,9 @@
 package io.paging.bean;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PagingBean implements Serializable{
-
-	private static final long serialVersionUID = -7012583124966294783L;
+public class PagingBean {
 
 	private List<PagingInfoBean> pagingInfoList = new ArrayList<PagingInfoBean>();
 

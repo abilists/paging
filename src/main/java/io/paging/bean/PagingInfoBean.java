@@ -1,13 +1,8 @@
 package io.paging.bean;
 
-import java.io.Serializable;
-
-public class PagingInfoBean implements Serializable{
-
-	private static final long serialVersionUID = -164237641662187614L;
+public class PagingInfoBean {
 
 	private String pageNumber;
-
 
 	public String getPageNumber() {
 		return pageNumber;

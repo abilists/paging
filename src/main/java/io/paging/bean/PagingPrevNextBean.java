@@ -1,10 +1,6 @@
 package io.paging.bean;
 
-import java.io.Serializable;
-
-public class PagingPrevNextBean implements Serializable {
-
-	private static final long serialVersionUID = 3863419024973741318L;
+public class PagingPrevNextBean {
 
 	private String nowPage;
 
