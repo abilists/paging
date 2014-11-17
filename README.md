@@ -4,6 +4,8 @@ Paging library for Java
 \[ [About](https://github.com/minziappa/paging) •
 [Install](https://github.com/minziappa/paging) • [Blog](http://njoonk.blogspot.jp/) \]
 
+[![Build Status](https://travis-ci.org/minziappa/paging.svg?branch=master)](https://travis-ci.org/minziappa/paging)
+
 Paging is a library tool to divide pages in Java. It is very sample so you can easily use it to your
 particular web project.
 
