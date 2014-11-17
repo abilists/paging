@@ -1,1 +1,4 @@
-gradle assemble
+language: java
+jdk:
+  - oraclejdk7
+gradle
