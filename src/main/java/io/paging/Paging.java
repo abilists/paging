@@ -8,6 +8,7 @@ public class Paging {
 
 	protected static int PAGE_PER = 10;
 	protected static int PAGE_LIMIT = 10;
+	protected static int TOTAL_LIMIT = 2000;
 
 	// private 
 	public static void linkPaging(PagingBean pagingBean, int intNowPagePara, int intPerPage, int intLimitPage) throws Exception {
@@ -28,10 +29,10 @@ public class Paging {
 		// Total count
 		intTotalHits = pagingBean.getAllCount();
 
-//		// If the total count is over, it set 1000 count.
-//		if (intTotalHits > 2000) {
-//			intTotalHits = 2000;
-//		}
+		// If the total count is over, it set 1000 count.
+		if (intTotalHits > TOTAL_LIMIT) {
+			intTotalHits = TOTAL_LIMIT;
+		}
 
 		// Now page
 		intNowPage = intNowPagePara;
@@ -97,7 +98,7 @@ public class Paging {
 			intPageNumber = 0;
 		}
 
-		// To set the link parametar in the 7 number
+		// To set the link parameter in the 7 number
 		for (int i=0;intLimitPage > i; i++ ) {
 			PagingInfoBean pagingInfoBean = new PagingInfoBean();
 
@@ -107,7 +108,7 @@ public class Paging {
 			pagingBean.addPagingInfoList(pagingInfoBean);
 		}
 
-		// To press the button munber that is paging number.
+		// To press the button number that is paging number.
 		pagingBean.setNowPage(String.valueOf(intNowPage));
 		// To set the count for represent
 		intStartCount = (intNowPage-1)*intPerPage+1;
@@ -123,6 +124,10 @@ public class Paging {
 		int intLimitPage = PAGE_LIMIT;
 
 		linkPaging(pagingBean, intNowPagePara, intPerPage, intLimitPage);
+	}
+
+	public static void setTotalLimit(int pagePer, int pageLimit, int totalLimit) throws Exception {
+		TOTAL_LIMIT = totalLimit;
 	}
 
 }

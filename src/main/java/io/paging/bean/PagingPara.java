@@ -7,6 +7,12 @@ public class PagingPara {
 	private int allCount = 0;
 
 	public int getNowPage() {
+
+		// Check a nowPage
+		if(nowPage <= 0){
+			nowPage = 1;
+		}
+
 		return nowPage;
 	}
 
