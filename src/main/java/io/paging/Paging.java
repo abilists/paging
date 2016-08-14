@@ -6,21 +6,23 @@ import io.paging.bean.PagingPrevNextBean;
 
 public class Paging {
 
-	protected static int PAGE_PER = 10;
-	protected static int PAGE_LIMIT = 10;
-	protected static int TOTAL_LIMIT = 2000;
+	public static int PER_PAGE = 10;
+	public static int PAGE_LIMIT = 10;
+	public static int TOTAL_LIMIT = 2000;
 
 	// private 
-	public static void linkPaging(PagingBean pagingBean, int intNowPagePara, int intPerPage, int intLimitPage) throws Exception {
+	public static void linkPaging(PagingBean pagingBean, int intNowPagePara) throws Exception {
 
 		int intNowPage = 1;
 		int intMaxPage = 1;
+		int intPerPage = 0;
+		int intLimitPage = 0;
 		int intTotalHits = 0;
 		int intStartCount = 0;
 		int intEndCount = 0;
 
 		if(intPerPage < 1) {
-			intPerPage = PAGE_PER;
+			intPerPage = PER_PAGE;
 		}
 		if(intLimitPage < 1) {
 			intLimitPage = PAGE_LIMIT;
@@ -118,16 +120,18 @@ public class Paging {
 
 	}
 
-	public static void linkPaging(PagingBean pagingBean, int intNowPagePara) throws Exception {
-
-		int intPerPage = PAGE_PER;
-		int intLimitPage = PAGE_LIMIT;
-
-		linkPaging(pagingBean, intNowPagePara, intPerPage, intLimitPage);
-	}
-
 	public static void setTotalLimit(int pagePer, int pageLimit, int totalLimit) throws Exception {
-		TOTAL_LIMIT = totalLimit;
+
+		if(pagePer > PER_PAGE) {
+			PER_PAGE = pagePer;			
+		}
+		if(pageLimit > PAGE_LIMIT) {
+			PAGE_LIMIT = pageLimit;			
+		}
+		if(totalLimit > TOTAL_LIMIT) {
+			TOTAL_LIMIT = totalLimit;			
+		}
+
 	}
 
 }
