@@ -5,6 +5,8 @@
 [Install](https://github.com/abilists/paging) • [Blog](http://njoonk.blogspot.jp/) \]
 
 [![Build Status](https://travis-ci.org/abilists/paging.svg?branch=master)](https://travis-ci.org/abilists/paging)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/abilists/paging)
+
 
 Paging is a library to divide pages in Java. It is very sample so you can easily use it to your
 particular web project.
