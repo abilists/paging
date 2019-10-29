@@ -1,8 +1,5 @@
 # Paging library for Abilists
 --------------------------------------------------
-
-\[ [Install](https://github.com/abilists/paging) • [Blog](http://njoonk.blogspot.jp/) \]
-
 [![Build Status](https://travis-ci.org/abilists/paging.svg?branch=master)](https://travis-ci.org/abilists/paging)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/abilists/paging)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/abilists/paging)
@@ -73,8 +70,8 @@ Add the following code into View page
 </#if>
 ```
 #### How to input the above code with database
-[Controller or Service in area.](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/controller/AdminController.java#L155)
-[With Database](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/service/impl/SampleServiceImpl.java#L204)
+\[ [Controller or Service in area.](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/controller/AdminController.java#L155) • 
+[With Database](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/service/impl/SampleServiceImpl.java#L204)\]
 
 #### License
 
