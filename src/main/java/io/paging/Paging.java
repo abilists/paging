@@ -31,7 +31,7 @@ public class Paging {
 		// Total count
 		intTotalHits = pagingBean.getAllCount();
 
-		// If the total count is over, it set 1000 count.
+		// If the total count is over, it set 2000 count.
 		if (intTotalHits > TOTAL_LIMIT) {
 			intTotalHits = TOTAL_LIMIT;
 		}
