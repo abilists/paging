@@ -40,7 +40,6 @@ public class PagingTest {
 		// Now page
 		Paging.linkPaging(paging, nowPage);
 		pagingModel.setPaging(paging);
-		
 		List<PagingInfoBean> pagingInfoBeanList = pagingModel.getPaging().getPagingInfoList();
 		
 		int i=0;

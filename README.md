@@ -28,7 +28,7 @@ $ gradle install
 ```
 Add the following code into build.gradle in your new project.
 ```
-compile 'io.paging:paging:0.2'
+compile 'io.paging:paging:0.3'
 ```
 #### Get started
 Add the following code into the Model class.
@@ -41,7 +41,7 @@ public void setPaging(PagingBean paging) {
 	this.paging = paging;
 }
 ```
-Caculate a sum and set it to the paging
+Caculate a sum and set it to the paging, ex)abilistsModel is the Model class.
 ```
 abilistsModel.setPaging(service.makePaging(tasksPara, intSum));
 ```
@@ -50,37 +50,35 @@ Caculate a sum and set it to the paging
 List<abilistsModel> abilistsList = projectService.listAbilists(tasksPara);
 abilistsModel.setAbilistsList(abilistsList);
 
-```
 Add the following code into View page
 ```
-<nav class="text-center">
-    <ul class="pagination">
-    <#if model?exists>
-  	<#if model.paging?exists>
-		<#if model.paging.prevPage?exists>
-		<li><a href="abilistsList?nowPage=${model.paging.prevPage.nowPage}&allCount=${model.paging.allCount?c}" title="Prev" accesskey="*">Prev</span></a></li>
-		</#if>
-		<#if model.paging.pagingInfoList?has_content>
-			<#list model.paging.pagingInfoList as pageList>
-				<#if model.paging.nowPage?if_exists == pageList.pageNumber?if_exists>
-				<li class="active"><a href="#">${pageList.pageNumber} <span class="sr-only">(current)</span></a></li>
-				<#else>
-				<li><a href="abilistsList?nowPage=${pageList.pageNumber}&allCount=${model.paging.allCount?c}">${pageList.pageNumber}</a></li>
-				</#if>
-			</#list>
-		</#if>
-		<#if model.paging.nextPage?exists>
-		<li><a href="abilistsList?nowPage=${model.paging.nextPage.nowPage}&allCount=${model.paging.allCount?c}" accesskey="#" title="Next">Next</a></li>
-		</#if>
+<#if model?exists>
+<#if model.paging?exists>
+	<#if model.paging.prevPage?exists>
+	<li><a href="abilistsList?nowPage=${model.paging.prevPage.nowPage}&allCount=${model.paging.allCount?c}" title="Prev" accesskey="*">Prev</span></a></li>
 	</#if>
+	<#if model.paging.pagingInfoList?has_content>
+		<#list model.paging.pagingInfoList as pageList>
+			<#if model.paging.nowPage?if_exists == pageList.pageNumber?if_exists>
+			<li class="active"><a href="#">${pageList.pageNumber} <span class="sr-only">(current)</span></a></li>
+			<#else>
+			<li><a href="abilistsList?nowPage=${pageList.pageNumber}&allCount=${model.paging.allCount?c}">${pageList.pageNumber}</a></li>
+			</#if>
+		</#list>
 	</#if>
-  	</ul>
-</nav>
+	<#if model.paging.nextPage?exists>
+	<li><a href="abilistsList?nowPage=${model.paging.nextPage.nowPage}&allCount=${model.paging.allCount?c}" accesskey="#" title="Next">Next</a></li>
+	</#if>
+</#if>
+</#if>
 ```
+#### How to input the above code with database
+[Controller or Service in area.](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/controller/AdminController.java#L155)
+[With Database](https://github.com/minziappa/spring_sample/blob/master/src/main/java/io/sample/service/impl/SampleServiceImpl.java#L204)
+
 #### License
 
 Paging is distributed under the MIT License.
-
 
 #### Thank you!
 
