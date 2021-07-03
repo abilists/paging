@@ -25,7 +25,7 @@ $ gradle install
 ```
 Add the following code into build.gradle in your new project.
 ```
-compile 'io.paging:paging:0.3'
+compile 'io.paging:paging:0.4'
 ```
 #### Get started
 Add the following code into the Model class.

@@ -9,6 +9,8 @@ public class PagingBean {
 
 	private int allCount;
 
+	private int rowPage;
+
 	private String nowPage;
 
 	private String startCount;
@@ -43,6 +45,14 @@ public class PagingBean {
 
 	public void setNowPage(String nowPage) {
 		this.nowPage = nowPage;
+	}
+
+	public int getRowPage() {
+		return rowPage;
+	}
+
+	public void setRowPage(int rowPage) {
+		this.rowPage = rowPage;
 	}
 
 	public String getStartCount() {

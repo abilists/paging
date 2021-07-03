@@ -145,9 +145,8 @@ public class Paging {
 
 	public static void setTotalLimit(int pagePer, int pageLimit, int totalLimit) throws Exception {
 
-		if(pagePer > PER_PAGE) {
-			PER_PAGE = pagePer;			
-		}
+		PER_PAGE = pagePer;			
+
 		if(pageLimit > PAGE_LIMIT) {
 			PAGE_LIMIT = pageLimit;			
 		}
