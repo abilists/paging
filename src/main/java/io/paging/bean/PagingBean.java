@@ -10,6 +10,8 @@ public class PagingBean {
 	private int allCount;
 
 	private int rowPage;
+	
+	private RowCountBean rowCount;
 
 	private String nowPage;
 
@@ -53,6 +55,18 @@ public class PagingBean {
 
 	public void setRowPage(int rowPage) {
 		this.rowPage = rowPage;
+	}
+
+	public RowCountBean getRowCount() {
+		return rowCount;
+	}
+
+	public void setRowCount(RowCountBean rowCount) {
+		this.rowCount = rowCount;
+	}
+
+	public void setPagingInfoList(List<PagingInfoBean> pagingInfoList) {
+		this.pagingInfoList = pagingInfoList;
 	}
 
 	public String getStartCount() {
