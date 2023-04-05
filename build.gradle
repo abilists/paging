@@ -22,7 +22,7 @@ publishing {
             artifactId = 'paging'
             version = project.version
             
-            artifact 'build/libs/io.paging-' + project.version + '.jar'
+            artifact 'build/libs/paging-' + project.version + '.jar'
         }
     }
 
