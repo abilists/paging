@@ -1,44 +1,54 @@
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'maven'
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
 
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
-
-version = '0.6'
-
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Paging', 'Implementation-Version': version
-    }
-}
 
 repositories {
 	mavenLocal()
     mavenCentral()
 }
 
-dependencies {
-	testCompile "junit:junit:4.+"
-}
+version = '0.7'
 
-test {
-    systemProperties 'property': 'value'
-}
+// gradle publish
+publishing {
 
-// gradle install
-configure(install.repositories.mavenInstaller) {
-    pom.project {
-		group = 'io.paging'
-		artifactId 'paging'
-        inceptionYear '2021'
-        packaging 'jar'
-        licenses {
-            license {
-                name 'Eclipse Public License (Version 1.0)'
-                url 'http://www.eclipse.org/legal/epl-v10.html'
-                distribution 'repo'
-            }
+    publications {
+        maven(MavenPublication) {
+            groupId = 'io.paging'
+            artifactId = 'paging'
+            version = project.version
+            
+            artifact 'build/libs/io.paging-' + project.version + '.jar'
         }
     }
+
+    repositories {
+        maven {
+            credentials {
+                username = "admin"
+                password = "password"
+            }
+            url = "http://192.168.0.180:8081/artifactory/libs-release-local"
+            allowInsecureProtocol = true
+        }
+    }
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes('Implementation-Title': 'Paging', 'Implementation-Version': project.version)
+    }
+}
+
+dependencies {
+	testImplementation "junit:junit:4.+"
+}
+
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
 }
