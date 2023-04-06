@@ -32,7 +32,7 @@ publishing {
                 username = "admin"
                 password = "password"
             }
-            url = "http://192.168.0.180:8081/artifactory/libs-release-local"
+            url = "http://localhost:8081/artifactory/libs-release-local"
             allowInsecureProtocol = true
         }
     }
