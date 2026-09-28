@@ -18,7 +18,7 @@ public abstract class AbstractPagingService {
 	protected static int DEFAULT_USER_LIMIT = 7;
 	protected static int DEFAULT_PAGING_LIMIT_TOTAL = 2000;
 
-	public PagingBean makePaging(CommonPara commonPara, int sum) throws Exception {
+	protected PagingBean makePaging(CommonPara commonPara, int sum) throws Exception {
 		PagingBean paging = new PagingBean();
 		// Set Paging list
 		if(commonPara.getAllCount() <= 0) {
@@ -26,9 +26,17 @@ public abstract class AbstractPagingService {
 		} else {
 			paging.setAllCount(commonPara.getAllCount());
 		}
-		Paging.setTotalLimit(Paging.PER_PAGE, Paging.PAGE_LIMIT, DEFAULT_PAGING_LIMIT_TOTAL);
-		// Carry the row count on the bean so linkPaging pages by the selected row count.
-		paging.setRowPage(Paging.PER_PAGE);
+
+		int row = Paging.PAGE_LIMIT;
+		// If commonPara.getPageRow() is default row over, 
+		if ( row < commonPara.getRowPage()) {
+			row = commonPara.getRowPage();
+		} else {
+			row = Paging.PAGE_LIMIT;			
+		}
+		paging.setRowPage(row);
+
+		Paging.setTotalLimit(paging.getRowPage(), Paging.PAGE_LIMIT, DEFAULT_PAGING_LIMIT_TOTAL);
 		Paging.linkPaging(paging, commonPara.getNowPage());
 
 		return paging;
