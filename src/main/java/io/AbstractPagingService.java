@@ -18,7 +18,7 @@ public abstract class AbstractPagingService {
 	protected static int DEFAULT_USER_LIMIT = 7;
 	protected static int DEFAULT_PAGING_LIMIT_TOTAL = 2000;
 
-	protected PagingBean makePaging(CommonPara commonPara, int sum) throws Exception {
+	public PagingBean makePaging(CommonPara commonPara, int sum) throws Exception {
 		PagingBean paging = new PagingBean();
 		// Set Paging list
 		if(commonPara.getAllCount() <= 0) {
