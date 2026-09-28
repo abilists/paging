@@ -27,6 +27,8 @@ public abstract class AbstractPagingService {
 			paging.setAllCount(commonPara.getAllCount());
 		}
 		Paging.setTotalLimit(Paging.PER_PAGE, Paging.PAGE_LIMIT, DEFAULT_PAGING_LIMIT_TOTAL);
+		// Carry the row count on the bean so linkPaging pages by the selected row count.
+		paging.setRowPage(Paging.PER_PAGE);
 		Paging.linkPaging(paging, commonPara.getNowPage());
 
 		return paging;

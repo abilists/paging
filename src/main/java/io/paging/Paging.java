@@ -38,12 +38,13 @@ public class Paging {
 
 		int intNowPage = 1;
 		int intMaxPage = 1;
-		int intPerPage = 0;
+		int intPerPage = pagingBean.getRowPage();
 		int intLimitPage = 0;
 		int intTotalHits = 0;
 		int intStartCount = 0;
 		int intEndCount = 0;
 
+		// Use the row count selected on the bean, and fall back to the default per page.
 		if(intPerPage < 1) {
 			intPerPage = PER_PAGE;
 		}
@@ -143,14 +144,24 @@ public class Paging {
 
 	}
 
+	/**
+	 * Apply the paging limits. Each argument is applied when it is a positive value,
+	 * so a caller can set a smaller value than the current default.
+	 *
+	 * @param pagePer the row count per page
+	 * @param pageLimit the number of page links to show at once
+	 * @param totalLimit the maximum total hits to page over
+	 * @throws Exception if the limits cannot be applied
+	 */
 	public static void setTotalLimit(int pagePer, int pageLimit, int totalLimit) throws Exception {
 
-		PER_PAGE = pagePer;			
-
-		if(pageLimit > PAGE_LIMIT) {
+		if(pagePer > 0) {
+			PER_PAGE = pagePer;
+		}
+		if(pageLimit > 0) {
 			PAGE_LIMIT = pageLimit;			
 		}
-		if(totalLimit > TOTAL_LIMIT) {
+		if(totalLimit > 0) {
 			TOTAL_LIMIT = totalLimit;			
 		}
 
